@@ -18,6 +18,8 @@ jobs:
       - name: Is variable exported?
         run: |
           echo "BUILD_NUMBER=yellow" >> $GITHUB_ENV
+        shell: bash
+        
       - name: PowerShell script
         # You may pin to the exact commit or the version.
         # uses: Amadevus/pwsh-script@25a636480c7bc678a60bbf4e3e5ac03aca6cf2cd
@@ -27,6 +29,8 @@ jobs:
           # PowerShell script to execute in Actions-hydrated context
           script: | 
             Write-Host $env:BUILD_NUMBER
+            
       - name: Read exported variable
         run: |
           echo "${{ env.BUILD_NUMBER}}"
+        shell: bash
